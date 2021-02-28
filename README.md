@@ -28,12 +28,10 @@
 
 ### 📎 Features 
 
-- [x] Criação do Ponto de Coleta
-- [x] Anexação de imagem do Ponto de Coleta
-- [x] Tema Light/Dark mode
-- [x] Detalhes da Ponto de Coleta
-- [x] Atualização do cadastro do Ponto de Coleta
-- [x] Substituição ou Atualização da Imagem
+- [x] Cronômetro Pomodoro
+- [x] Desafios disponivéis ao final do cronômetro
+- [x] Ao concluir o desafio, ganhe uma quantidade pré-determinada de xp
+- [x] Evolua de level conforme progrida
 
 ### 💻 Projeto
 
