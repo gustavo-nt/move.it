@@ -30,6 +30,7 @@
 
 - [x] Cronômetro Pomodoro
 - [x] Desafios disponivéis ao final do cronômetro
+- [x] Notificação disponivel ao final do cronômetro
 - [x] Ao concluir o desafio, ganhe uma quantidade pré-determinada de xp
 - [x] Evolua de level conforme progrida
 
