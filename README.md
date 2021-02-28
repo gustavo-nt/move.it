@@ -39,7 +39,7 @@
 
 ### 💻 Projeto
 
-O Ecoleta é uma aplicação que visa ajudar pessoas que tenham o interesse de descartar resíduos que possam agredir o meio ambiente em locais adequados onde poderam ser reciclados e/ou reaproveitados. Projeto desenvolvido durante a semana do Next Level Week 1ª Edição. 
+O Move.it é uma aplicação baseada na técnica Pomodoro que visa ajudar trabalhadores a aumentar sua produtividade. Dessa forma, a aplicação define 25 minutos de trabalho para uma pausa de 5 minutos para descanso e/ou qualquer outra atividade não vinculada ao trabalho. Esse Projeto foi desenvolvido durante a semana do Next Level Week 4ª Edição. 
 
 ### ✅ Demonstração
 <img src="https://github.com/gustavo-nt/ecoleta_1.0/blob/main/public/assets/home_ecoleta.PNG" />
@@ -47,7 +47,7 @@ O Ecoleta é uma aplicação que visa ajudar pessoas que tenham o interesse de d
 ### ⚙ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e/ou [Npm](https://www.npmjs.com/get-npm). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e/ou [Yarn](https://yarnpkg.com/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 📗 Rodando a Aplicação (web)
