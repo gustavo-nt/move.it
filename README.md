@@ -53,9 +53,6 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 # Clone este repositório
 $ git clone https://github.com/gustavo-nt/move.it
 
-# Navegue para a pasta
-$ cd nlw_4
-
 # Instale as dependências
 $ yarn
 
