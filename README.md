@@ -33,6 +33,10 @@
 - [x] Notificação disponível ao final do cronômetro
 - [x] Ao concluir o desafio, ganhe uma quantidade pré-determinada de xp
 - [x] Evolua de level conforme progrida
+- [x] Tela de login com usuário do GitHub
+- [x] Animações com framer-motion
+- [x] Tela de últimos desafios concluídos
+- [x] Menu Sidebar
 
 ### 💻 Projeto
 
@@ -76,6 +80,8 @@ Esse projeto foi utilizou das seguintes lib:
 
 - js-cookie
 - react-dom
+- framer-motion
+- babel-plugin-inline-react-svg
 
 ### 📝 Licença
 
