@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
-
+import CheckCircle from '../assets/check_circle.svg';
+import Close from '../assets/close.svg';
+import PlayArrow from '../assets/play_arrow.svg';
 
 export function Countdown() {
     const { 
@@ -36,7 +38,7 @@ export function Countdown() {
                     className={styles.countdownButton}
                 >
                     Ciclo encerrado
-                    <img src="icons/check_circle.svg"/>
+                    <CheckCircle />
                 </button>
             ): (
                 <>
@@ -47,7 +49,7 @@ export function Countdown() {
                             onClick={resetCountdown}
                         >
                             Abandonar Ciclo
-                            <img src="icons/close.svg"/>
+                            <Close />
                         </button>
                     ) : (
                         <button 
@@ -56,7 +58,7 @@ export function Countdown() {
                             onClick={startCoundown}
                         >
                             Iníciar Ciclo
-                            <img src="icons/play_arrow.svg"/>
+                            <PlayArrow />
                         </button>
                     )}
                 </>

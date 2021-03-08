@@ -14,3 +14,27 @@
     gap: 6.25rem;
     align-content: center;
 }
+
+@media(max-width: 868px) {
+    .container section {
+        display: block;
+    }
+
+    .container section > div {
+        max-width: 75%;
+        margin: 3rem auto;
+    }
+}
+
+@media(max-width: 668px) {
+    .container section > div {
+        max-width: 85%;
+    }
+}
+
+
+@media(max-width: 468px) {
+    .container section > div {
+        max-width: 100%;
+    }
+}

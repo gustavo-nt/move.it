@@ -9,11 +9,18 @@ interface Challenge {
     amount: number;
 }
 
+interface ChallengeProps {
+    type: string;
+    description: string;
+    amount: number;
+}
+
 interface ChallengesProviderProps {
     children: ReactNode;
     level: number;
     currentExperience: number;
     challengesCompleted: number;
+    challengesFinished?: Array<ChallengeFinishedProps>
 }
 
 interface ChallengesContextData {
@@ -29,12 +36,20 @@ interface ChallengesContextData {
     closeLevelUpModal: () => void;
 }
 
+export interface ChallengeFinishedProps {
+    type: string;
+    amount: number;
+    level: number;
+    description: string;
+}
+
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
     const [level, setLevel] = useState(rest.level ?? 1);
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
+    const [challengesFinished, setChallengesFinished] = useState<ChallengeFinishedProps[]>(rest.challengesFinished ?? []);
 
     const [activeChallenge, setActiveChallenge] = useState(null);
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
@@ -49,7 +64,8 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         Cookies.set('level', String(level));
         Cookies.set('currentExperience', String(currentExperience));
         Cookies.set('challengesCompleted', String(challengesCompleted));
-    }, [level, currentExperience, challengesCompleted])
+        Cookies.set('challengesFinished', String(JSON.stringify(challengesFinished)));
+    }, [level, currentExperience, challengesCompleted, challengesFinished])
 
     function levelUp() {
         setLevel(level + 1);
@@ -84,7 +100,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
             return;
         }
 
-        const { amount } = activeChallenge;
+        const { type, amount, description } = activeChallenge;
 
         let finalExperience = currentExperience + amount;
 
@@ -96,6 +112,12 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         setCurrentExperience(finalExperience);
         setActiveChallenge(null);
         setChallengesCompleted(challengesCompleted + 1);
+        setChallengesFinished([...challengesFinished, {
+            amount,
+            description,
+            type,
+            level
+        }])
     }
 
     return (

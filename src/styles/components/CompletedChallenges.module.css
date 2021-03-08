@@ -8,8 +8,14 @@
     font-weight: 500;
 }
 
-.completedChallengesContainer span:first-child {
+.completedChallengesContainer div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.completedChallengesContainer div:first-child span {
     font-size: 1.25rem;
+    margin-left: 5px;
 }
 
 .completedChallengesContainer span:last-child {

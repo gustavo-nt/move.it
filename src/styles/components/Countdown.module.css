@@ -75,9 +75,23 @@
     color: var(--white);
 }
 
+.countdownButtonActive:not(:disabled):hover svg path{
+    fill: var(--white);
+}
+
 .countdownButton:disabled {
     background: var(--white);
     color: var(--text);
     border-bottom: 4px solid var(--green);
     cursor: not-allowed;
+}
+
+@media(max-width: 468px) {
+    .countdownContainer > div span {
+        font-size: 6rem;
+    }
+
+    .countdownContainer > span {
+        font-size: 5.25rem;
+    }
 }

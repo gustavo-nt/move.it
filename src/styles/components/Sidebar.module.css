@@ -1,0 +1,110 @@
+.sidebarContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sidebarContainer aside{
+    width: 112px;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.05));
+}
+
+.sidebarContainer .iconsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.sidebarContainer svg {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.iconsContainer .iconHome,
+.iconsContainer .iconAward {
+    position: relative;
+}
+
+.iconsContainer .iconHome .active,
+.iconsContainer .iconAward .active {
+    color: #5965E0;
+}
+
+.iconsContainer .flagSidebar {
+    background-color: var(--blue);
+    height: 56px;
+    width: 6px;
+    left: -40px;
+    top: -13px;
+    position: absolute;
+    border-radius: 0 10px 10px 0;
+}
+
+.sidebarContainer aside footer svg {
+    color: #5965E0;
+}
+
+@media(max-width: 1200px) {
+    .sidebarContainer {
+        position: fixed;
+        z-index: 1;
+    }
+
+    .sidebarContainer .iconsContainer {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .iconsContainer .flagSidebar {
+        background-color: transparent;
+        height: 56px;
+        width: 6px;
+        left: -40px;
+        top: -13px;
+        position: absolute;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .sidebarContainer aside{
+        width: 100vw;
+        padding: 2rem;
+        height: 80px;
+        flex-direction: row;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .sidebarContainer aside > div {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .sidebarContainer aside > div div:first-child{
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 400px) {
+    .sidebarContainer aside {
+        padding: 1.5rem;
+        height: 60px;
+    }
+
+    .sidebarContainer aside img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .sidebarContainer svg {
+        width: 24px;
+        height: 24px;
+    }
+}

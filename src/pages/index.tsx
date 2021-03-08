@@ -1,61 +1,96 @@
-import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { UserProvider } from '../contexts/UserContext';
 
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ChallengeBox } from '../components/ChallengeBox';
+import { useRouter } from 'next/router';
+import { FaGithub, FaArrowRight } from 'react-icons/fa';
 
-import styles from '../styles/pages/Home.module.css';
-import { CountdownProvider } from '../contexts/CountdownContext';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+import LogoImg from '../assets/logo.svg';
+import BackgroundImg from '../assets/background-home.svg';
 
-interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
+import styles from '../styles/pages/Index.module.css';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { motion } from 'framer-motion';
 
-export default function Home(props: HomeProps) {
-  return (
-    <ChallengesProvider 
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | Moveit</title>
-        </Head>
+const SignIn = () => {
+  const router = useRouter();
+  const { login } = useContext(UserContext);
+  const [name, setName] = useState('');
+  const [variant, setVariant] = useState('base');
 
-        <ExperienceBar />
+  useEffect(() => {
+    const user = localStorage.getItem('login');
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
-  ) 
-}
+    if (user) {
+      setVariant('finish');
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted} = ctx.req.cookies;
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+      setTimeout(() => {
+        router.push('/home');
+      }, 300);
     }
+  }, [router]);
+  
+  const handleClick = () => {
+    fetch(`https://api.github.com/users/${name}`)
+    .then((resp) => resp.json())
+    .then(function(data) {
+      login(data);
+      setVariant('finish');
+
+      setTimeout(() => {
+        router.push('/home');
+      }, 300);
+    });
   }
+
+  return (
+    <UserProvider>
+      <motion.div className={styles.containerIndex} 
+        initial="base"
+        animate={variant}
+        transition={{ duration: 0.45 }}
+        variants={{
+          finish: { x: '-100%' },
+          base: { },
+        }}
+      >
+        <section>
+          <BackgroundImg />
+          
+          <motion.div className={styles.content}
+            variants={{
+              show: { opacity: 1, y: '0' },
+              hidden: { opacity: 0, y: '-100%' },
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{ duration: 0.7, ease: 'easeInOut' }}
+          >
+            <div className={styles.inboard}>
+              <LogoImg />
+              <h1>Bem vindo</h1>
+
+              <div className={styles.github}>
+                <FaGithub />
+                <span>Faça login com seu Github para começar</span>
+              </div>
+
+              <div className={styles.input}>
+                <input 
+                  type="text" 
+                  placeholder="Seu user do Github"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <button onClick={handleClick}>
+                  <FaArrowRight />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+      </motion.div>
+    </UserProvider>
+  )
 }
+
+export default SignIn;
