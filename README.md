@@ -80,6 +80,7 @@ Esse projeto foi utilizou das seguintes lib:
 
 - js-cookie
 - react-dom
+- react-icons
 - framer-motion
 - babel-plugin-inline-react-svg
 
