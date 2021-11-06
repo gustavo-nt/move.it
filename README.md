@@ -58,21 +58,19 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone https://github.com/gustavo-nt/move.it
 
 # Instale as dependências
-$ yarn
+$ yarn ou npm
 
 # Execute a aplicação
-$ yarn dev
+$ yarn ou npm dev
 ```
 
 ### 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- React.js
+- ReactJS
 - Typescript
 - Next.js
-- Node.Js
-- CSS
 
 ### 📕 Bibliotecas
 
